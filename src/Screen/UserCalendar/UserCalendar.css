@@ -1,0 +1,77 @@
+div.CalendarApp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: auto;
+  color: black;
+}
+
+div.react-calendar {
+  padding: 10px;
+  width: 40vw;
+  height: 40vh;
+}
+div.Detail {
+  width: 40vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid gray;
+  color: black;
+}
+
+div.DetailHeader {
+  font-size: large;
+  margin: 1.3rem 2rem 1.3rem 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+div.DetailBody {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  margin: 0;
+}
+
+p.memoList {
+  width: 90%;
+  margin: 0;
+  padding: 0;
+}
+
+p.memoContent {
+  width: auto;
+  height: 1.5rem;
+  margin: 0.2rem 0.5rem;
+  padding: 0;
+}
+
+button.deleteMemo {
+  margin: 0.5rem;
+  margin-left: 1rem;
+  padding: 0;
+  width: 1rem;
+  border: none;
+  background-color: red;
+  color: #fff;
+  font-size: 0.7rem;
+  cursor: pointer;
+  border: solid 1px red;
+  border-radius: 40%;
+}
+
+input.memoInput {
+  height: 1.5rem;
+  margin: 0.5rem 0.5rem;
+  padding: 0;
+}

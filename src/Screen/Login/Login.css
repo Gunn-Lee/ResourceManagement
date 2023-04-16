@@ -1,0 +1,23 @@
+div.Login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+  height: auto;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+form.login_form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  width: 80%;
+}
+
+form input {
+  margin-bottom: 1rem;
+}
