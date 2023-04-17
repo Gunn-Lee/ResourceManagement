@@ -1,83 +1,84 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "./Login.css";
 import userInfo from "../../atom/userInfo";
 import { useRecoilState } from "recoil";
-import moment from "moment";
+import "./Login.css";
 
-const Login = () => {
+const SignUp = () => {
     const navigate = useNavigate();
+    const inputRef = useRef();
     const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const [disabled, setDisabled] = useState(true);
     const [user, setUser] = useRecoilState(userInfo);
 
     useEffect(() => {
-        if (username !== "" && password !== "") {
-            setDisabled(false);
-        }
-    }, [username, password]);
+        inputRef.current.focus();
+    }, []);
 
-    const loginHandler = async (e) => {
+    const signUnHandler = async (e) => {
         e.preventDefault();
-        if (username === "admin@admin.com" && password === "1") {
-            setUser({
-                username,
-                password,
-                checkin: moment(new Date()).format(),
-            });
-            navigate("/calendar");
-            setUsername("");
-            setPassword("");
-            setError("");
-        } else {
-            setError("Invalid username or password");
-        }
+        setUser({
+            username,
+            email,
+            password,
+        });
+        navigate("/calendar");
+        setUsername("");
+        setEmail("");
+        setPassword("");
+        setError("");
     };
+
     return (
         <div className='Auth-form-container'>
-            <form className='Auth-form' onSubmit={(e) => loginHandler(e)}>
+            <form className='Auth-form' onSubmit={(e) => signUnHandler(e)}>
                 <div className='Auth-form-content'>
                     <h3 className='Auth-form-title'>Sign In</h3>
                     <div className='text-center'>
-                        Not registered yet?{" "}
-                        <Link className='link-primary' to='/signup'>
-                            Sign Up
+                        Already registered?{" "}
+                        <Link className='link-primary' to='/login'>
+                            Sign In
                         </Link>
                     </div>
                     <div className='form-group mt-3'>
-                        <label title='username'>Email address</label>
+                        <label>Full Name</label>
+                        <input
+                            type='text'
+                            className='form-control mt-1'
+                            placeholder='e.g Jane Doe'
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            ref={inputRef}
+                        />
+                    </div>
+                    <div className='form-group mt-3'>
+                        <label>Email address</label>
                         <input
                             type='email'
                             className='form-control mt-1'
-                            placeholder='Enter email'
-                            htmlFor='username'
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            placeholder='Email Address'
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
                     <div className='form-group mt-3'>
                         <label>Password</label>
                         <input
-                            className='form-control mt-1'
-                            htmlFor='password'
-                            placeholder='Enter password'
                             type='password'
+                            className='form-control mt-1'
+                            placeholder='Password'
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
                     <div className='d-grid gap-2 mt-3'>
-                        <button
-                            type='submit'
-                            className='btn btn-primary'
-                            disabled={disabled}>
+                        <button type='submit' className='btn btn-primary'>
                             Submit
                         </button>
                     </div>
-                    <p className='errorMessage'>{error}</p>
-                    <p className='forgot-password text-right mt-2'>
+                    <p className='text-center mt-2'>
                         Forgot <a href='#'>password?</a>
                     </p>
                 </div>
@@ -86,4 +87,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;

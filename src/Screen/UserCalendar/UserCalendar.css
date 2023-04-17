@@ -1,77 +1,131 @@
+div.CalendarContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    color: black;
+    opacity: 1;
+}
+
 div.CalendarApp {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: auto;
-  color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: auto;
+    color: black;
 }
 
 div.react-calendar {
-  padding: 10px;
-  width: 40vw;
-  height: 40vh;
+    padding: 10px;
+    width: 40vw;
+    height: 40vh;
 }
 div.Detail {
-  width: 40vw;
-  height: 40vh;
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  border: 1px solid gray;
-  color: black;
+    width: 40vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid gray;
+    color: black;
 }
 
 div.DetailHeader {
-  font-size: large;
-  margin: 1.3rem 2rem 1.3rem 1rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+    font-size: large;
+    margin: 1.3rem 2rem 1.3rem 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 div.DetailBody {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  overflow: scroll;
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    overflow: scroll;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    margin: 0;
 }
 
 p.memoList {
-  width: 90%;
-  margin: 0;
-  padding: 0;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
 }
 
 p.memoContent {
-  width: auto;
-  height: 1.5rem;
-  margin: 0.2rem 0.5rem;
-  padding: 0;
+    width: auto;
+    height: 1.5rem;
+    margin: 0.2rem 0.5rem;
+    padding: 0;
 }
 
 button.deleteMemo {
-  margin: 0.5rem;
-  margin-left: 1rem;
-  padding: 0;
-  width: 1rem;
-  border: none;
-  background-color: red;
-  color: #fff;
-  font-size: 0.7rem;
-  cursor: pointer;
-  border: solid 1px red;
-  border-radius: 40%;
+    margin: 0.5rem;
+    margin-left: 1rem;
+    padding: 0;
+    width: 1rem;
+    border: none;
+    background-color: red;
+    color: #fff;
+    font-size: 0.7rem;
+    cursor: pointer;
+    border: solid 1px red;
+    border-radius: 40%;
 }
 
 input.memoInput {
-  height: 1.5rem;
-  margin: 0.5rem 0.5rem;
-  padding: 0;
+    height: 1.5rem;
+    margin: 0.5rem 0.5rem;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    div.CalendarApp {
+        display: flex;
+        flex-direction: column;
+    }
+    div.react-calendar {
+        width: 90vw;
+        height: auto;
+        max-height: 30vh;
+    }
+    div.Detail {
+        width: 90vw;
+        height: auto;
+        max-height: 40vh;
+    }
+
+    div.DetailHeader {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    div.CalendarApp {
+        display: flex;
+        flex-direction: column;
+    }
+    div.react-calendar {
+        width: 60vw;
+        height: auto;
+        height: 30vh;
+    }
+    div.Detail {
+        width: 60vw;
+        height: auto;
+        height: 30vh;
+    }
+
+    div.DetailHeader {
+        flex-direction: column;
+    }
 }
